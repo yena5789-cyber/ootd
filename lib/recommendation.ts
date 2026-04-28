@@ -42,7 +42,7 @@ export const recommendNextItems = ({
 }): Array<{ item: OutfitItem; reason: string; score: number }> => {
   const targetCategory = baseMatchMap[selectedItem.category];
 
-  let pool = outfitItems.filter((item) => item.category === targetCategory);
+  let pool: any[] = outfitItems.filter((item) => item.category === targetCategory);
 
   pool = pool.map((item) => {
     let score = 50;
