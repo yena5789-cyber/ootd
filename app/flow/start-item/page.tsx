@@ -11,7 +11,7 @@ export default async function StartItemPage({ searchParams }: Props) {
   const startCategory = params.startCategory ?? "상의";
 
   return (
-    <MobileShell title="시작 아이템 안내" subtitle="추천 흐름의 시작점을 날씨 기준으로 정했어요.">
+    <MobileShell title="시작 아이템 안내" subtitle="추천 흐름의 시작점을 날씨 기준으로 정했어요." backHref="/flow/weather">
       <ProgressPill step={5} total={8} />
       <div className="space-y-4 rounded-2xl bg-white p-5 shadow-card">
         <p className="text-lg font-semibold text-primary">{startCategory}부터 시작해보세요</p>

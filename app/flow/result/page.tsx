@@ -1,8 +1,6 @@
 import Link from "next/link";
 import MobileShell from "@/components/MobileShell";
 import ProgressPill from "@/components/ProgressPill";
-import { DateType } from "@/lib/types";
-import { weatherMocks } from "@/lib/weather";
 
 type Props = {
   searchParams: Promise<Record<string, string | undefined>>;
@@ -10,20 +8,26 @@ type Props = {
 
 export default async function ResultPage({ searchParams }: Props) {
   const params = await searchParams;
-  const dateType = (params.dateType as DateType) ?? "내일";
-  const weather = weatherMocks[dateType];
+  const feelsLike = params.feelsLike ?? "16";
+
+  const firstCategory = params.selectedCategory;
+  const secondCategory = params.nextCategory;
+
+  const top = firstCategory === "상의" ? params.selectedName : secondCategory === "상의" ? params.nextName : "셔츠";
+  const bottom = firstCategory === "하의" ? params.selectedName : secondCategory === "하의" ? params.nextName : "슬랙스";
+  const outer = firstCategory === "아우터" ? params.selectedName : secondCategory === "아우터" ? params.nextName : "자켓";
 
   return (
-    <MobileShell title="오늘 코디" subtitle="서울 · 내일 기준 추천 결과예요.">
+    <MobileShell title="오늘 코디" subtitle="최종 OOTD 카드 결과예요." backHref="/flow/select-item">
       <ProgressPill step={8} total={8} />
       <section className="space-y-3 rounded-2xl bg-white p-5 shadow-card">
         <p className="text-sm text-slate-500">
-          {(params.location ?? "서울")} · {dateType} · 체감온도 {weather.feelsLike}°C
+          {params.location ?? "서울"} · {params.dateLabel ?? params.dateType ?? "내일"} · 체감온도 {feelsLike}°C
         </p>
         <div className="space-y-1 text-sm">
-          <p>상의: {params.selectedCategory === "상의" ? params.selectedName : "셔츠"}</p>
-          <p>하의: {params.selectedCategory === "하의" ? params.selectedName : "슬랙스"}</p>
-          <p>아우터: {params.selectedCategory === "아우터" ? params.selectedName : "자켓"}</p>
+          <p>상의: {top}</p>
+          <p>하의: {bottom}</p>
+          <p>아우터: {outer}</p>
           <p>신발: 스니커즈</p>
         </div>
         <p className="rounded-xl bg-soft px-3 py-2 text-sm text-slate-700">

@@ -6,7 +6,7 @@ const options = ["여성룩", "남성룩", "상관없음"] as const;
 
 export default function OutfitTypePage() {
   return (
-    <MobileShell title="룩 타입 선택" subtitle="원하는 분위기의 기본 룩 타입을 선택해주세요.">
+    <MobileShell title="룩 타입 선택" subtitle="원하는 분위기의 기본 룩 타입을 선택해주세요." backHref="/">
       <ProgressPill step={1} total={8} />
       <section className="grid gap-3">
         {options.map((option) => (

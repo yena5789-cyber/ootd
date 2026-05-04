@@ -13,7 +13,11 @@ export default async function StylePage({ searchParams }: Props) {
   const outfitType = params.outfitType ?? "상관없음";
 
   return (
-    <MobileShell title="스타일 선택" subtitle="오늘의 일정이나 무드에 맞는 스타일을 골라주세요.">
+    <MobileShell
+      title="스타일 선택"
+      subtitle="오늘의 일정이나 무드에 맞는 스타일을 골라주세요."
+      backHref="/flow/outfit-type"
+    >
       <ProgressPill step={2} total={8} />
       <section className="grid gap-3">
         {styles.map((style) => (
