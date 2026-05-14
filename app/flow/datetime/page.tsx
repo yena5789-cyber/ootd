@@ -3,13 +3,7 @@ import OptionCard from "@/components/OptionCard";
 import ProgressPill from "@/components/ProgressPill";
 
 type Props = {
-  searchParams: Promise<{
-    outfitType?: string;
-    style?: string;
-    location?: string;
-    dateType?: string;
-    customDate?: string;
-  }>;
+  searchParams: Promise<{ outfitType?: string; style?: string; dateType?: string }>;
 };
 
 const dates = ["오늘", "내일", "이번 주말", "직접 선택"] as const;
