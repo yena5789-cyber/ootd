@@ -6,6 +6,15 @@
   color-scheme: light;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  @apply bg-soft text-slate-900;
+  @apply bg-[#fffaf5] text-stone-900 antialiased;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
