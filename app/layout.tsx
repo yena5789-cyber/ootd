@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "오늘 뭐 입지?",
-  description: "날씨 기반 OOTD 추천 앱",
+  title: "에나버스",
+  description: "에나의 지인망 안에서 시작되는 비공개 소개",
 };
 
 export default function RootLayout({
